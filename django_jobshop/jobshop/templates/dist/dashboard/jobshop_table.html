@@ -1,0 +1,270 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" dir="ltr" data-pc-theme="light">
+  <!-- [Head] start -->
+
+  <head>
+    <title>HoH Dashboard</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [Favicon] icon -->
+    <link rel="icon" href="http://houseofholmes.com/cdn/shop/files/GIF-LOGO_132.gif?v=1646255833" type="image/x-icon" />
+
+    <!-- [Font] Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- [phosphor Icons] -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/phosphor/duotone/style.css' %}" />
+
+    <!-- [Tabler Icons] -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/tabler-icons.min.css' %}" />
+
+    <!-- [Feather Icons] -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css' %}" />
+
+    <!-- [Font Awesome Icons] -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css' %}" />
+
+    <!-- [Material Icons] -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css' %}" />
+
+    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" id="main-style-link" />
+
+
+  </head>
+  <!-- [Head] end -->
+
+
+
+
+  <!-- [Body] Start -->
+
+  <body>
+ <!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header flex items-center py-4 px-6 h-header-height">
+      <a href="{% static 'index.html' %}" class="b-brand flex items-center gap-3">
+        
+        <!-- ========   Change your logo from here   ============ -->
+        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-lg" alt="logo" />
+        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-sm" alt="logo" />
+      </a>
+    </div>
+    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+          <label>Navigation</label>
+        </li>
+        <li class="pc-item">
+        <li class="pc-item">
+          <a href="../dashboard/index.html" class="pc-link">
+            <span class="pc-micon">
+              <i data-feather="home"></i>
+            </span>
+            <span class="pc-mtext">Dashboard</span>
+          </a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+          <div class="page-block">
+            <div class="page-header-title">
+              <h2 class="mb-0 font-medium">Jobshop Table</h2>
+            </div>
+          </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+        <div class="grid grid-cols-12 gap-x-6">
+          <div class="col-span-12 xl:col-span-12 md:col-span-12">
+            <h2 class="mb-0 font-medium">Jobshop Gannt Chart</h2>
+            <title>Job Shop Gantt</title>
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- 引入 Plotly -->
+              {{ gantt_html|safe }}  
+          </div>
+      
+            <div class="col-span-12 xl:col-span-12 md:col-span-12">
+              <title>Job Table</title>
+              <h2 class="mb-0 font-medium">Jobshop Table</h2>
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- 引入 Plotly -->
+                {{ table_html|safe }}  
+            </div>
+
+          <div class="col-span-12 xl:col-span-4 md:col-span-6">
+            <div class="card user-list">
+              <div class="card-header">
+                <h5>Rating</h5>
+              </div>
+              <div class="card-body">
+                <div class="flex items-center justify-between gap-1 mb-5">
+                  <h2 class="font-light flex items-center m-0">
+                    4.7
+                    <i class="fas fa-star text-[10px] ml-2.5 text-warning-500"></i>
+                  </h2>
+                  <h6 class="flex items-center m-0">
+                    0.4
+                    <i class="fas fa-caret-up text-success text-[22px] ml-2.5"></i>
+                  </h6>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h6 class="flex items-center gap-1">
+                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
+                    5
+                  </h6>
+                  <h6>384</h6>
+                </div>
+                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
+                  <div
+                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
+                    role="progressbar"
+                    style="width: 70%"
+                  ></div>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h6 class="flex items-center gap-1">
+                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
+                    4
+                  </h6>
+                  <h6>145</h6>
+                </div>
+                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
+                  <div
+                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
+                    role="progressbar"
+                    style="width: 35%"
+                  ></div>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h6 class="flex items-center gap-1">
+                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
+                    3
+                  </h6>
+                  <h6>24</h6>
+                </div>
+                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
+                  <div
+                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
+                    role="progressbar"
+                    style="width: 25%"
+                  ></div>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h6 class="flex items-center gap-1">
+                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
+                    2
+                  </h6>
+                  <h6>1</h6>
+                </div>
+                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
+                  <div
+                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
+                    role="progressbar"
+                    style="width: 10%"
+                  ></div>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h6 class="flex items-center gap-1">
+                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
+                    1
+                  </h6>
+                  <h6>0</h6>
+                </div>
+                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-4 dark:bg-themedark-bodybg">
+                  <div
+                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
+                    role="progressbar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- [ Main Content ] end -->
+      </div>
+    </div>
+
+    <!-- [ Main Content ] end -->
+    <footer class="pc-footer">
+      <div class="footer-wrapper container-fluid mx-10">
+        <div class="grid grid-cols-12 gap-1.5">
+          <div class="col-span-12 sm:col-span-6 my-1">
+            <p class="m-0"></p>
+              <a href="https://codedthemes.com/" class="text-theme-bodycolor dark:text-themedark-bodycolor hover:text-primary-500 dark:hover:text-primary-500" target="_blank">CodedThemes</a>
+              , Built with ♥ for a smoother web presence.
+            </p>
+          </div>
+          <div class="col-span-12 sm:col-span-6 my-1 justify-self-end">
+                   <p class="inline-block max-sm:mr-3 sm:ml-2">Distributed by <a href="https://themewagon.com" target="_blank">Themewagon</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+ 
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/plugins/simplebar.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/icon/custom-icon.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/component.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+    <div class="floting-button fixed bottom-[50px] right-[30px] z-[1030]">
+    </div>
+
+    
+    <script>
+      layout_change('false');
+    </script>
+     
+    
+    <script>
+      layout_theme_sidebar_change('dark');
+    </script>
+    
+     
+    <script>
+      change_box_container('false');
+    </script>
+     
+    <script>
+      layout_caption_change('true');
+    </script>
+     
+    <script>
+      layout_rtl_change('false');
+    </script>
+     
+    <script>
+      preset_change('preset-1');
+    </script>
+     
+    <script>
+      main_layout_change('vertical');
+    </script>
+    
+
+  </body>
+  <!-- [Body] end -->
+</html>
