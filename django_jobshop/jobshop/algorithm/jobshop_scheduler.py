@@ -123,6 +123,11 @@ class GAJobScheduler:
         )])
         table_html = pio.to_html(fig, full_html=False)
         return table_html
+    
+    def get_dataframe(self):
+        table_jobs = pd.DataFrame(self.df_jobs)
+        return table_jobs
+    
 
 
 # Run the scheduler with test data

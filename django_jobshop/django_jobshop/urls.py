@@ -21,7 +21,7 @@ from jobshop.views import hello_view, dashboard_view, jobshop_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_view),
-    path('index/', dashboard_view),
-    path('jobshop/', jobshop_view),
+    path('index/', dashboard_view, name='dashboard'),
+    path('jobshop/', jobshop_view, name='jobshop'),
     path('', dashboard_view)
 ]

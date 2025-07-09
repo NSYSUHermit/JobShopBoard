@@ -44,53 +44,14 @@
   <!-- [Body] Start -->
 
   <body>
- <!-- [ Sidebar Menu ] start -->
-<nav class="pc-sidebar">
-  <div class="navbar-wrapper">
-    <div class="m-header flex items-center py-4 px-6 h-header-height">
-      <a href="{% static 'index.html' %}" class="b-brand flex items-center gap-3">
-        
-        <!-- ========   Change your logo from here   ============ -->
-        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-lg" alt="logo" />
-        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-sm" alt="logo" />
-      </a>
-    </div>
-    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
-      <ul class="pc-navbar">
-        <li class="pc-item pc-caption">
-          <label>Navigation</label>
-        </li>
-        <li class="pc-item">
-        <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link">
-            <span class="pc-micon">
-              <i data-feather="home"></i>
-            </span>
-            <span class="pc-mtext">Dashboard</span>
-          </a>
-        </li>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!-- [ Sidebar Menu ] start -->
+ {% include 'dist/partials/sidebar.html' %}
 <!-- [ Sidebar Menu ] end -->
 
     <!-- [ Main Content ] start -->
     <div class="pc-container">
       <div class="pc-content">
         <!-- [ breadcrumb ] start -->
-        <head>
-          <title>Job Shop Gantt</title>
-          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- 引入 Plotly -->
-        </head>
-        <body>
-          <h2>Job Shop 排程結果</h2>
-          <div>
-            {{ gantt_html|safe }}  
-          </div>
-        </body>
-
         <div class="page-header">
           <div class="page-block">
             <div class="page-header-title">

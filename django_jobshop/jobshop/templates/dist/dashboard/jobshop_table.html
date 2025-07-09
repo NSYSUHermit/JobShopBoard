@@ -3,6 +3,13 @@
 <html lang="en" data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" dir="ltr" data-pc-theme="light">
   <!-- [Head] start -->
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', 'Open Sans', sans-serif;
+    }
+  </style>
+
   <head>
     <title>HoH Dashboard</title>
     <!-- [Meta] -->
@@ -44,50 +51,13 @@
   <!-- [Body] Start -->
 
   <body>
- <!-- [ Sidebar Menu ] start -->
-<nav class="pc-sidebar">
-  <div class="navbar-wrapper">
-    <div class="m-header flex items-center py-4 px-6 h-header-height">
-      <a href="{% static 'index.html' %}" class="b-brand flex items-center gap-3">
-        
-        <!-- ========   Change your logo from here   ============ -->
-        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-lg" alt="logo" />
-        <img src="https://houseofholmes.com/cdn/shop/files/House_of_Holmes_Logo.png?v=1699642946&width=340" class="img-fluid logo logo-sm" alt="logo" />
-      </a>
-    </div>
-    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
-      <ul class="pc-navbar">
-        <li class="pc-item pc-caption">
-          <label>Navigation</label>
-        </li>
-        <li class="pc-item">
-        <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link">
-            <span class="pc-micon">
-              <i data-feather="home"></i>
-            </span>
-            <span class="pc-mtext">Dashboard</span>
-          </a>
-        </li>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!-- [ Sidebar Menu ] start -->
+ {% include 'dist/partials/sidebar.html' %}
 <!-- [ Sidebar Menu ] end -->
 
     <!-- [ Main Content ] start -->
     <div class="pc-container">
       <div class="pc-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-          <div class="page-block">
-            <div class="page-header-title">
-              <h2 class="mb-0 font-medium">Jobshop Table</h2>
-            </div>
-          </div>
-        </div>
-        <!-- [ breadcrumb ] end -->
 
         <!-- [ Main Content ] start -->
         <div class="grid grid-cols-12 gap-x-6">
@@ -104,103 +74,7 @@
               <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- 引入 Plotly -->
                 {{ table_html|safe }}  
             </div>
-
-          <div class="col-span-12 xl:col-span-4 md:col-span-6">
-            <div class="card user-list">
-              <div class="card-header">
-                <h5>Rating</h5>
-              </div>
-              <div class="card-body">
-                <div class="flex items-center justify-between gap-1 mb-5">
-                  <h2 class="font-light flex items-center m-0">
-                    4.7
-                    <i class="fas fa-star text-[10px] ml-2.5 text-warning-500"></i>
-                  </h2>
-                  <h6 class="flex items-center m-0">
-                    0.4
-                    <i class="fas fa-caret-up text-success text-[22px] ml-2.5"></i>
-                  </h6>
-                </div>
-
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <h6 class="flex items-center gap-1">
-                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
-                    5
-                  </h6>
-                  <h6>384</h6>
-                </div>
-                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
-                  <div
-                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                    role="progressbar"
-                    style="width: 70%"
-                  ></div>
-                </div>
-
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <h6 class="flex items-center gap-1">
-                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
-                    4
-                  </h6>
-                  <h6>145</h6>
-                </div>
-                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
-                  <div
-                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                    role="progressbar"
-                    style="width: 35%"
-                  ></div>
-                </div>
-
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <h6 class="flex items-center gap-1">
-                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
-                    3
-                  </h6>
-                  <h6>24</h6>
-                </div>
-                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
-                  <div
-                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                    role="progressbar"
-                    style="width: 25%"
-                  ></div>
-                </div>
-
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <h6 class="flex items-center gap-1">
-                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
-                    2
-                  </h6>
-                  <h6>1</h6>
-                </div>
-                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mb-6 mt-3 dark:bg-themedark-bodybg">
-                  <div
-                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                    role="progressbar"
-                    style="width: 10%"
-                  ></div>
-                </div>
-
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <h6 class="flex items-center gap-1">
-                    <i class="fas fa-star text-[10px] mr-2.5 text-warning-500"></i>
-                    1
-                  </h6>
-                  <h6>0</h6>
-                </div>
-                <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-4 dark:bg-themedark-bodybg">
-                  <div
-                    class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                    role="progressbar"
-                    style="width: 0%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <!-- [ Main Content ] end -->
       </div>
     </div>
 
