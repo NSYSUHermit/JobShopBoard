@@ -63,6 +63,21 @@
 
         <!-- [ Main Content ] start -->
         <div class="grid grid-cols-12 gap-x-6">
+          <!-- 🔽 Dropdown to select production line -->
+          <div class="col-span-12">
+            <div class="card">
+              <div class="card-body">
+                <label for="line-select" class="block mb-2 text-sm font-medium text-gray-700">Select Production Line:</label>
+                <select id="line-select" class="w-full p-2 border rounded-md">
+                  <option value="all">All Lines</option>
+                  <option value="line-a">Line A</option>
+                  <option value="line-b">Line B</option>
+                  <option value="line-c">Line C</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="col-span-12 xl:col-span-4 md:col-span-6">
             <div class="card">
               <div class="card-header !pb-0 !border-b-0">
@@ -83,6 +98,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-span-12 xl:col-span-4 md:col-span-6">
             <div class="card">
               <div class="card-header !pb-0 !border-b-0">
@@ -103,6 +119,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-span-12 xl:col-span-4">
             <div class="card">
               <div class="card-header !pb-0 !border-b-0">
@@ -123,6 +140,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-span-12 xl:col-span-4">
             <div class="card card-social">
               <div class="card-body border-b border-theme-border dark:border-themedark-border">
@@ -154,6 +172,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-span-12 xl:col-span-4 md:col-span-6">
             <div class="card card-social">
               <div class="card-body border-b border-theme-border dark:border-themedark-border">
@@ -185,6 +204,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-span-12 xl:col-span-4 md:col-span-6">
             <div class="card card-social">
               <div class="card-body border-b border-theme-border dark:border-themedark-border">
@@ -217,7 +237,123 @@
             </div>
           </div>
 
-          <div class="col-span-12 xl:col-span-4 md:col-span-6">
+          <!-- 🔁 Section: Order Schedule (per line) -->
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-a">
+            <div class="card">
+              <div class="card-header">
+                <h5>Line A - Order Schedule</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-disc ml-5">
+                  <li>Active Work Orders: <strong>5</strong></li>
+                  <li>Delayed Orders: <span class="text-red-500 font-bold">2</span></li>
+                  <li>On-Time Rate Today: <span class="text-green-600">88%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🧱 Section: Raw Material Inventory (per line) -->
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-b">
+            <div class="card">
+              <div class="card-header">
+                <h5>Line B - Raw Material Inventory</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-disc ml-5">
+                  <li>Below Safety Stock: <span class="text-red-500 font-bold">Fabric-A</span></li>
+                  <li>Low Stock Warning: <span class="text-yellow-600">Thread-B (15% left)</span></li>
+                  <li>Reorder Status: <span class="text-blue-600">Ordered</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🧑‍ Section: Workforce Assignment (per line) -->
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-c">
+            <div class="card">
+              <div class="card-header">
+                <h5>Line C - Workforce Assignment</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-disc ml-5">
+                  <li>Assigned Staff: Alice, Bob</li>
+                  <li>Skill Mismatch Alerts: <span class="text-red-500">1</span></li>
+                  <li>Task Completion Rate: <span class="text-green-600">72%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ⚙️ Section: Machine Capacity (per line) -->
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-a">
+            <div class="card">
+              <div class="card-header">
+                <h5>Line A - Machine Capacity</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-disc ml-5">
+                  <li>Required Machines: <strong>4</strong></li>
+                  <li>Available Machines: <span class="text-red-500">3</span> (1 missing)</li>
+                  <li>Under Maintenance: M1-2 (ETA: 7/14)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- v JavaScript to toggle production lines -->
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const dropdown = document.getElementById("line-select");
+              const allBlocks = document.querySelectorAll('[data-line]');
+
+              function updateVisibility() {
+                const selected = dropdown.value;
+                allBlocks.forEach(block => {
+                  const isMatch = selected === 'all' || block.getAttribute("data-line") === selected;
+                  block.style.display = isMatch ? "block" : "none";
+                });
+              }
+
+              dropdown.addEventListener("change", updateVisibility);
+              updateVisibility();
+            });
+          </script>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const dropdown = document.getElementById("line-select");
+              const allBlocks = document.querySelectorAll('[data-line]');
+
+              function updateVisibility() {
+                const selected = dropdown.value;
+                allBlocks.forEach(block => {
+                  const line = block.getAttribute("data-line");
+                  const expand = block.getAttribute("data-expand") === "true";
+                  const isVisible = selected === 'all' || line === selected;
+
+                  block.style.display = isVisible ? "block" : "none";
+
+                  // handle width expansion
+                  if (expand) {
+                    block.classList.remove("xl:col-span-4", "xl:col-span-8");
+                    if (selected !== "all" && line === selected) {
+                      block.classList.add("xl:col-span-8");
+                    } else {
+                      block.classList.add("xl:col-span-4");
+                    }
+                  }
+                });
+              }
+
+              dropdown.addEventListener("change", updateVisibility);
+              updateVisibility();
+            });
+          </script>
+          <!-- ^ JavaScript to toggle production lines -->
+
+
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-a" data-expand="true">
             <div class="card table-card">
               <div class="card-header">
                 <h5>Product 1</h5>
@@ -327,10 +463,11 @@
               </div>
             </div>
           </div>
-          <div class="col-span-12 xl:col-span-4 md:col-span-6">
+
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-b" data-expand="true">
             <div class="card table-card">
               <div class="card-header">
-                <h5>Product 2</h5>
+                <h5>Product B</h5>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -437,10 +574,11 @@
               </div>
             </div>
           </div>
-          <div class="col-span-12 xl:col-span-4 md:col-span-6">
+
+          <div class="col-span-12 xl:col-span-4 md:col-span-6" data-line="line-c" data-expand="true">
             <div class="card table-card">
               <div class="card-header">
-                <h5>Product 3</h5>
+                <h5>Product C</h5>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

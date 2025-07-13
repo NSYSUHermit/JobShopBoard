@@ -911,11 +911,11 @@ b, strong{
   padding-bottom: 0.625rem;
   font-size: 0.875rem;
   --tw-text-opacity: 1;
-  color: rgb(169 183 208 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .pc-navbar .pc-link:is([data-pc-theme="dark"] *){
   --tw-text-opacity: 1;
-  color: rgb(169 183 208 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .pc-navbar .pc-link .pc-micon{
   display: inline-block;
